@@ -8,6 +8,7 @@ audio semantic은 kaist의 music and audio computing lab에서 학습한 PASST �
 ### backend
 
 ### frontend
+- npx create-react-app frontend
 
 ### Install
 
