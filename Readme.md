@@ -17,8 +17,8 @@ audio semantic은 kaist의 music and audio computing lab에서 학습한 PASST �
 
 ```
 cd backend
-pip install -r requirement.txt
-query_to_meta.py --port {BackendPort}
+pip install -r requirements.txt
+python query_to_meta.py --port {BackendPort}
 ```
 
 ### 2. frontend (Serving with Docker)
