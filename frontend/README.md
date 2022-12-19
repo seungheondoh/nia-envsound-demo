@@ -1,7 +1,7 @@
 # Requirement
 
-node --version v18.12.1
-npm --version 8.19.2
+- node --version v18.12.1
+- npm --version 8.19.2
 
 # Install
 ```
@@ -19,21 +19,21 @@ Change [DataManger.js](https://github.com/SeungHeonDoh/nia-envsound-demo/blob/ma
 
 ```javascript
 const getServerData = async(query) => {
-		setPreviewRender(false);
-		setLoading(true);
-		resetPlay();
-		try{
-			const serverData = await axios(`{YourServer}:{BackendPort}/?query=${query}`)
-			const displayTag = getDisplayTag(serverData.data.sim_tag);
-			setTagdata(displayTag);
-			setSongdata(serverData.data.sim_track);
-			setSelectSong(serverData.data.sim_track[0]);
-			setLoading(false);
-		} catch (e) {
-			if (e) {
-				console.log(e.message, "Sorry Error!")
-			}
+	setPreviewRender(false);
+	setLoading(true);
+	resetPlay();
+	try{
+		const serverData = await axios(`{YourServer}:{BackendPort}/?query=${query}`)
+		const displayTag = getDisplayTag(serverData.data.sim_tag);
+		setTagdata(displayTag);
+		setSongdata(serverData.data.sim_track);
+		setSelectSong(serverData.data.sim_track[0]);
+		setLoading(false);
+	} catch (e) {
+		if (e) {
+			console.log(e.message, "Sorry Error!")
 		}
 	}
+}
 
 ```
