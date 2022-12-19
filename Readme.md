@@ -5,12 +5,36 @@
 audio semantic은 kaist의 music and audio computing lab에서 학습한 PASST 모델을 backbone으로 학습한 encoder로 추출하며, 
 추가적인 zeroshot retrieval을 한국어 SentenceBERT을 활용하여 검색의 사용성을 높였습니다. 자세한 내용은 Reference를 참고하시길 바랍니다.
 
-### backend
+### 0. Requirement
 
-### frontend
-- npx create-react-app frontend
+Env
+- Docker
 
-### Install
+Frontend
+- node --version v18.12.1
+- npm --version 8.19.2
+
+Backend
+- python 3.7 + FLASK
+
+
+
+### 1. backend
+
+```
+cd backend
+query_to_meta.py --port {BackendPort}
+```
+
+### 2. frontend
+
+```
+cd backend
+npm install
+npm run build
+docker build -t nginx-react:0.1 .
+docker run -d --name my-react-app -p 8300:80 nginx-react:0.1
+```
 
 ### Reference
 - audio semantic model: https://github.com/doochi/nia121_extractor
