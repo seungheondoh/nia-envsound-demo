@@ -7,26 +7,21 @@ audio semantic은 kaist의 music and audio computing lab에서 학습한 PASST �
 
 ### 0. Requirement
 
-Env
 - Docker
-
-Frontend
 - node --version v18.12.1
 - npm --version 8.19.2
-
-Backend
 - python 3.7 + FLASK
 
 
-
-### 1. backend
+### 1. Start backend
 
 ```
 cd backend
+pip install -r requirement.txt
 query_to_meta.py --port {BackendPort}
 ```
 
-### 2. frontend
+### 2. frontend (Serving with Docker)
 
 ```
 cd backend
