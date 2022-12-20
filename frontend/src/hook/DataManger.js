@@ -28,7 +28,8 @@ const MetaProvider = (props) => {
 	// server data
 	const fetchData = async() => {
 		try {
-			const nomalize_to_display = await axios("http://mac-chopin23.kaist.ac.kr:7777/static/metadata/annotation.json");
+			//const nomalize_to_display = await axios("http://1.227.58.170:61001/static/metadata/annotation.json");
+			const nomalize_to_display = await axios("http://192.168.50.53:61001/static/metadata/annotation.json");
 			setTagmap(nomalize_to_display.data);
 			setLoading(false);
 		} catch (e) {
@@ -42,7 +43,8 @@ const MetaProvider = (props) => {
 		if (searchInput !== "") {
 			setPreviewRender(true)
 			try {
-				const filterData = await axios(`http://mac-chopin23.kaist.ac.kr:7777/filter?search=${searchInput}`);
+				const filterData = await axios(`http://1.227.58.170:61001/filter?search=${searchInput}`);
+			//	const filterData = await axios(`http://192.168.50.53:61001/filter?search=${searchInput}`);
 				setSearchPreview(filterData.data.search_result);
 			} catch (e) {
 				console.log(e.message);
@@ -56,7 +58,8 @@ const MetaProvider = (props) => {
 		setLoading(true);
 		resetPlay();
 		try{
-			const serverData = await axios(`http://mac-chopin23.kaist.ac.kr:7777/?query=${query}`)
+			const serverData = await axios(`http://1.227.58.170:61001/?query=${query}`)
+			//const serverData = await axios(`http://192.168.50.53:61001/?query=${query}`)
 			const displayTag = getDisplayTag(serverData.data.sim_tag);
 			setTagdata(displayTag);
 			setSongdata(serverData.data.sim_track);
@@ -120,7 +123,7 @@ const MetaProvider = (props) => {
 			togglePlay();
 		} else {
 			audioPlayer.pause();
-			const NewAudioPlayer = new Audio(`http://mac-chopin23.kaist.ac.kr:7777/static/${songdata[index].audio_path}`)
+			const NewAudioPlayer = new Audio(`http://192.168.50.53:61001/static/${songdata[index].audio_path}`)
 			NewAudioPlayer.play()
 			setAudioPlayer(NewAudioPlayer)
 			setCurrentTrackIndex(index)

@@ -8,7 +8,7 @@
 npm install
 npm run build
 docker build -t nginx-react:0.1 .
-docker run -d --name my-react-app -p 8300:80 nginx-react:0.1
+docker run -d --name my-react-app -p 61002:80 nginx-react:0.1
 ```
 
 # Customize Your server 
